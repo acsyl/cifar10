@@ -64,16 +64,12 @@ def Net(inputs, dropout_kept_prob, is_training):
 def train(batch_size=128, num_epochs=100):
     # Always use tf.reset_default_graph() to avoid error
     tf.reset_default_graph()
-    # TODO: Write your training code here
     # - Create placeholder for inputs, training boolean, dropout keep probablity
     # - Construct your model
     # - Create loss and training op
     # - Run training
-    # AS IT WILL TAKE VERY LONG ON CIFAR10 DATASET TO TRAIN
-    # YOU SHOULD USE tf.train.Saver() TO SAVE YOUR MODEL AFTER TRAINING
-    # AT TEST TIME, LOAD THE MODEL AND RUN TEST ON THE TEST SET
-
     # input Tensors
+
     input_x = tf.placeholder(tf.float32, shape=[None, 32, 32, 3], name='x')
     input_y = tf.placeholder(tf.float32, shape=[None, 10], name='y')
     dropout_kept_prob = tf.placeholder(tf.float32, name="dropout_kept_prob")
@@ -169,8 +165,6 @@ def test(cifar10_test_images, batch_size=128):
     # (Above 2 steps should be the same as in train function)
     # - Create label prediction tensor
     # - Run testing
-    # DO NOT RUN TRAINING HERE!
-    # LOAD THE MODEL AND RUN TEST ON THE TEST SET
     # input Tensors
     input_x = tf.placeholder(tf.float32, shape=[None, 32, 32, 3], name='x')
     input_y = tf.placeholder(tf.float32, shape=[None, 10], name='y')
